@@ -17,10 +17,11 @@ const NewMessageModal = ({isOpen, close, resetFilter}: Props) => {
   const [message, setMessage] = useState('');
   const messageTooLong = message.length > 200;
 
-  const onSuccess = (data: FetchMessagesResponse) => {
+  const onSuccess = async (data: FetchMessagesResponse) => {
     setAuthorId(undefined);
     setMessage('');
     resetFilter();
+    await queryClient.invalidateQueries({queryKey: ['messages', authorId]});
     queryClient.setQueryData(['messages'], data);
     close();
   };
@@ -35,7 +36,7 @@ const NewMessageModal = ({isOpen, close, resetFilter}: Props) => {
 
   return (
     <Modal isOpen={isOpen} close={close} className="add-message-modal" preventClosing={isPending}>
-      <form >
+      <form>
         <AuthorsAutocomplete authorId={authorId} onChange={id => setAuthorId(id)} />
         <TextField
           error={messageTooLong}
