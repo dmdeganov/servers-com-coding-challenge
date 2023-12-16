@@ -1,0 +1,27 @@
+@use 'styles/variables' as *;
+.add-message-modal {
+  .modal__content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $surface-container-low;
+  }
+
+  form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    & > div {
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    padding: 20px;
+    .modal__content {
+      width: 100%;
+    }
+    form {
+      width: 100%;
+    }
+  }
+}

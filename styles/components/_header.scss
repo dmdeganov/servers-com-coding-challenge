@@ -1,0 +1,15 @@
+@use 'styles/variables' as *;
+
+.header{
+  background-color: $surface-container ;
+  padding-right: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 64px;
+ a, a:visited, a:link {
+   color: $on-surface;
+   text-decoration: none;
+ }
+}

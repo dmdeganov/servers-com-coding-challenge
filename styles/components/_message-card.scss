@@ -1,0 +1,22 @@
+@use 'styles/variables' as *;
+
+.message-card {
+  padding: 16px;
+  background-color: $surface-container;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  &__top{
+    span{
+      color: $on-surface-variant;
+    }
+  }
+  &__bottom{
+    display: flex;
+    justify-content: flex-end;
+    span, a{
+      color: $on-surface-variant;
+    }
+  }
+}
